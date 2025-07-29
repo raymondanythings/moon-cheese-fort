@@ -1,10 +1,22 @@
 import { createBrowserRouter } from 'react-router';
-import Home from '@/pages/Home';
+import PageLayout from '@/layout/PageLayout';
+import CurrentLevelPage from './pages/CurrentLevelPage';
+import HomePage from './pages/HomePage';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Home />,
+    element: <PageLayout />,
+    children: [
+      {
+        path: '/',
+        element: <HomePage />,
+      },
+      {
+        path: '/current-level',
+        element: <CurrentLevelPage />,
+      },
+    ],
   },
 ]);
 
