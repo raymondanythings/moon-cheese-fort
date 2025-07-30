@@ -1,7 +1,7 @@
 import { Badge } from '@/ui-lib/badge';
-import { Button } from '@/ui-lib/button';
 import { CurrencySwitch, type Currency } from '@/ui-lib/currency-switch';
 import { Heading } from '@/ui-lib/heading';
+import { IconButton } from '@/ui-lib/icon-button';
 import { Text } from '@/ui-lib/text';
 import { ShoppingCartIcon } from 'lucide-react';
 import { useState } from 'react';
@@ -22,14 +22,14 @@ export function Header() {
             <Text size="xs">프리미엄 치즈 백화점</Text>
           </Box>
         </HStack>
-        <HStack>
+        <HStack gap={1}>
           <CurrencySwitch currency={currency} onCurrencyChange={setCurrency} />
-          <Button variant="ghost">
+          <IconButton variant="ghost" size="sm">
             <ShoppingCartIcon />
-            <Badge position="absolute" top={-1} right={-1} size={'sm'} bg="amber.10">
-              <Text>9</Text>
+            <Badge position="absolute" top={-1} right={-1} size="sm" bg="amber.10">
+              9
             </Badge>
-          </Button>
+          </IconButton>
         </HStack>
       </Container>
     </Box>
