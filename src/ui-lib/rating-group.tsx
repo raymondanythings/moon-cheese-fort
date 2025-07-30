@@ -1,37 +1,48 @@
-'use client'
-import { forwardRef } from 'react'
-import * as StyledRatingGroup from './styled/rating-group'
+'use client';
+import { forwardRef } from 'react';
+import { HStack } from 'styled-system/jsx';
+import * as StyledRatingGroup from './styled/rating-group';
+import { Text } from './text';
 
-export interface RatingGroupProps extends StyledRatingGroup.RootProps {}
+export interface RatingGroupProps extends StyledRatingGroup.RootProps {
+  showValue?: boolean;
+}
 
 export const RatingGroup = forwardRef<HTMLDivElement, RatingGroupProps>((props, ref) => {
-  const { children, ...rootProps } = props
+  const { children, showValue = false, value, ...rootProps } = props;
   return (
-    <StyledRatingGroup.Root ref={ref} {...rootProps}>
+    <StyledRatingGroup.Root ref={ref} value={value} {...rootProps}>
       {children && <StyledRatingGroup.Label>{children}</StyledRatingGroup.Label>}
-      <StyledRatingGroup.Control>
-        <StyledRatingGroup.Context>
-          {({ items }) =>
-            items.map((index) => (
-              <StyledRatingGroup.Item key={index} index={index}>
-                <StyledRatingGroup.ItemContext>
-                  {(item) => <StarIcon isHalf={item.half} />}
-                </StyledRatingGroup.ItemContext>
-              </StyledRatingGroup.Item>
-            ))
-          }
-        </StyledRatingGroup.Context>
-      </StyledRatingGroup.Control>
+      <HStack>
+        <StyledRatingGroup.Control>
+          <StyledRatingGroup.Context>
+            {({ items }) =>
+              items.map(index => (
+                <StyledRatingGroup.Item key={index} index={index}>
+                  <StyledRatingGroup.ItemContext>
+                    {item => <StarIcon isHalf={item.half} />}
+                  </StyledRatingGroup.ItemContext>
+                </StyledRatingGroup.Item>
+              ))
+            }
+          </StyledRatingGroup.Context>
+        </StyledRatingGroup.Control>
+        {showValue && (
+          <Text fontSize="xs" color="gray.600">
+            {value}
+          </Text>
+        )}
+      </HStack>
       <StyledRatingGroup.HiddenInput />
     </StyledRatingGroup.Root>
-  )
-})
+  );
+});
 
-RatingGroup.displayName = 'RatingGroup'
+RatingGroup.displayName = 'RatingGroup';
 
 type IconProps = {
-  isHalf: boolean
-}
+  isHalf: boolean;
+};
 
 const StarIcon = (props: IconProps) => (
   <svg
@@ -57,4 +68,4 @@ const StarIcon = (props: IconProps) => (
       points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
     />
   </svg>
-)
+);
