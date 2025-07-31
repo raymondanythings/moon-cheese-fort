@@ -1,4 +1,4 @@
-export default function Spacing({ size }: { size: number }) {
+export function Spacing({ size }: { size: number }) {
   return (
     <div
       style={{

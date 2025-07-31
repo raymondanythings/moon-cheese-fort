@@ -1,5 +1,5 @@
 import { Button } from '@/ui-lib/button';
-import Spacing from '@/ui-lib/Spacing';
+import { Spacing } from '@/ui-lib/spacing';
 import { Text } from '@/ui-lib/text';
 
 import { CircleXIcon } from 'lucide-react';
