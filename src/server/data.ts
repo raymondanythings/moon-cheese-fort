@@ -124,14 +124,14 @@ export const products: Product[] = [
 ];
 
 // 등급별 포인트 설정
-export const gradePoints = {
+const GRADE_POINTS = {
   EXPLORER: 0,
   PILOT: 3.5,
   COMMANDER: 7,
 } as const;
 
 // 등급별 배송 설정
-export const gradeShipping = {
+const GRADE_SHIPPING = {
   EXPLORER: {
     fee: 2,
     freeThreshold: 30,
@@ -166,15 +166,15 @@ type GradeShipping = {
 const gradePointData: Record<GradeType, GradePoint> = {
   EXPLORER: {
     type: 'EXPLORER',
-    minPoint: gradePoints.EXPLORER,
+    minPoint: GRADE_POINTS.EXPLORER,
   },
   PILOT: {
     type: 'PILOT',
-    minPoint: gradePoints.PILOT,
+    minPoint: GRADE_POINTS.PILOT,
   },
   COMMANDER: {
     type: 'COMMANDER',
-    minPoint: gradePoints.COMMANDER,
+    minPoint: GRADE_POINTS.COMMANDER,
   },
 };
 
@@ -184,18 +184,18 @@ export const gradePointList = [gradePointData.EXPLORER, gradePointData.PILOT, gr
 const gradeShippingData: Record<GradeType, GradeShipping> = {
   EXPLORER: {
     type: 'EXPLORER',
-    shippingFee: gradeShipping.EXPLORER.fee,
-    freeShippingThreshold: gradeShipping.EXPLORER.freeThreshold,
+    shippingFee: GRADE_SHIPPING.EXPLORER.fee,
+    freeShippingThreshold: GRADE_SHIPPING.EXPLORER.freeThreshold,
   },
   PILOT: {
     type: 'PILOT',
-    shippingFee: gradeShipping.PILOT.fee,
-    freeShippingThreshold: gradeShipping.PILOT.freeThreshold,
+    shippingFee: GRADE_SHIPPING.PILOT.fee,
+    freeShippingThreshold: GRADE_SHIPPING.PILOT.freeThreshold,
   },
   COMMANDER: {
     type: 'COMMANDER',
-    shippingFee: gradeShipping.COMMANDER.fee,
-    freeShippingThreshold: gradeShipping.COMMANDER.freeThreshold,
+    shippingFee: GRADE_SHIPPING.COMMANDER.fee,
+    freeShippingThreshold: GRADE_SHIPPING.COMMANDER.freeThreshold,
   },
 };
 
