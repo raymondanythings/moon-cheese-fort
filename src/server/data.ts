@@ -122,3 +122,49 @@ export const products: Product[] = [
     likesCount: 0,
   },
 ];
+
+type Grade = {
+  type: 'EXPLORER' | 'PILOT' | 'COMMANDER';
+  minPoint: number;
+  shippingFee: number;
+  freeShippingThreshold: number;
+};
+
+export const grades: Grade[] = [
+  {
+    type: 'EXPLORER',
+    minPoint: 0,
+    shippingFee: 2,
+    freeShippingThreshold: 30,
+  },
+  {
+    type: 'PILOT',
+    minPoint: 3.5,
+    shippingFee: 1,
+    freeShippingThreshold: 30,
+  },
+  {
+    type: 'COMMANDER',
+    minPoint: 7,
+    shippingFee: 0,
+    freeShippingThreshold: 0, // 무조건 무료
+  },
+];
+
+type User = {
+  id: number;
+  name: string;
+  email: string;
+  point: number;
+  grade: Grade;
+  wishList: Product[];
+};
+
+export const user: User = {
+  id: 10111,
+  name: '김철수',
+  email: 'kim@gmail.com',
+  point: 2500,
+  grade: grades[0],
+  wishList: [],
+};

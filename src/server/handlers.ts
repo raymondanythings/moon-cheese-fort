@@ -3,6 +3,8 @@ import { products } from './data';
 
 const ERROR_CHANCE = 0.33;
 
+const EXCHANGE_RATE = Math.floor(Math.random() * (1400 - 1200 + 1)) + 1200;
+
 export const handlers = [
   http.get('/api/product/list', async () => {
     const isError = isErrorRandomly(ERROR_CHANCE);
@@ -15,6 +17,13 @@ export const handlers = [
 
     return HttpResponse.json({
       products: products,
+      status: 200,
+    });
+  }),
+
+  http.get('/api/exchange-rate', async () => {
+    return HttpResponse.json({
+      exchangeRate: EXCHANGE_RATE,
       status: 200,
     });
   }),
