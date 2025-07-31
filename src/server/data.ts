@@ -123,40 +123,90 @@ export const products: Product[] = [
   },
 ];
 
-type Grade = {
-  type: 'EXPLORER' | 'PILOT' | 'COMMANDER';
+// 등급별 포인트 설정
+export const gradePoints = {
+  EXPLORER: 0,
+  PILOT: 3.5,
+  COMMANDER: 7,
+} as const;
+
+// 등급별 배송 설정
+export const gradeShipping = {
+  EXPLORER: {
+    fee: 2,
+    freeThreshold: 30,
+  },
+  PILOT: {
+    fee: 1,
+    freeThreshold: 30,
+  },
+  COMMANDER: {
+    fee: 0,
+    freeThreshold: 0, // 무조건 무료
+  },
+} as const;
+
+// 등급 타입 정의
+export type GradeType = 'EXPLORER' | 'PILOT' | 'COMMANDER';
+
+// 포인트 관련 등급 타입
+type GradePoint = {
+  type: GradeType;
   minPoint: number;
+};
+
+// 배송 관련 등급 타입
+type GradeShipping = {
+  type: GradeType;
   shippingFee: number;
   freeShippingThreshold: number;
 };
 
-export const grades: Grade[] = [
-  {
+// 등급별 포인트 데이터
+const gradePointData: Record<GradeType, GradePoint> = {
+  EXPLORER: {
     type: 'EXPLORER',
-    minPoint: 0,
-    shippingFee: 2,
-    freeShippingThreshold: 30,
+    minPoint: gradePoints.EXPLORER,
   },
-  {
+  PILOT: {
     type: 'PILOT',
-    minPoint: 3.5,
-    shippingFee: 1,
-    freeShippingThreshold: 30,
+    minPoint: gradePoints.PILOT,
   },
-  {
+  COMMANDER: {
     type: 'COMMANDER',
-    minPoint: 7,
-    shippingFee: 0,
-    freeShippingThreshold: 0, // 무조건 무료
+    minPoint: gradePoints.COMMANDER,
   },
-];
+};
+
+export const gradePointList = [gradePointData.EXPLORER, gradePointData.PILOT, gradePointData.COMMANDER];
+
+// 등급별 배송 데이터
+const gradeShippingData: Record<GradeType, GradeShipping> = {
+  EXPLORER: {
+    type: 'EXPLORER',
+    shippingFee: gradeShipping.EXPLORER.fee,
+    freeShippingThreshold: gradeShipping.EXPLORER.freeThreshold,
+  },
+  PILOT: {
+    type: 'PILOT',
+    shippingFee: gradeShipping.PILOT.fee,
+    freeShippingThreshold: gradeShipping.PILOT.freeThreshold,
+  },
+  COMMANDER: {
+    type: 'COMMANDER',
+    shippingFee: gradeShipping.COMMANDER.fee,
+    freeShippingThreshold: gradeShipping.COMMANDER.freeThreshold,
+  },
+};
+
+export const gradeShippingList = [gradeShippingData.EXPLORER, gradeShippingData.PILOT, gradeShippingData.COMMANDER];
 
 type User = {
   id: number;
   name: string;
   email: string;
   point: number;
-  grade: Grade;
+  grade: GradeType;
   wishList: Product[];
 };
 
@@ -164,7 +214,7 @@ export const user: User = {
   id: 10111,
   name: '김철수',
   email: 'kim@gmail.com',
-  point: 2500,
-  grade: grades[0],
+  point: 3,
+  grade: 'EXPLORER',
   wishList: [],
 };
