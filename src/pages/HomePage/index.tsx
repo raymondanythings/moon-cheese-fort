@@ -1,16 +1,14 @@
 import { Stack } from 'styled-system/jsx';
-
-import CategoryFilter from './components/CategoryFilter';
+import CurrentLevelSection from './components/CurrentLevelSection';
 import ProductListSection from './components/ProductListSection';
 import RecentPurchaseSection from './components/RecentPurchaseSection';
-import UserStatsSection from './components/UserStatsSection';
 
 function HomePage() {
   return (
-    <Stack gap={4}>
+    <Stack gap={0}>
+      <img src="/images/cheese.jpg" alt="banner" style={{ height: 300, objectFit: 'cover' }} />
+      <CurrentLevelSection />
       <RecentPurchaseSection />
-      <UserStatsSection />
-      <CategoryFilter />
       <ProductListSection />
     </Stack>
   );

@@ -1,6 +1,6 @@
-import { createBrowserRouter } from 'react-router';
 import PageLayout from '@/layout/PageLayout';
-import CurrentLevelPage from './pages/CurrentLevelPage';
+import { createBrowserRouter } from 'react-router';
+import DetailPage from './pages/ShoppingPage';
 import HomePage from './pages/HomePage';
 
 const router = createBrowserRouter([
@@ -13,8 +13,8 @@ const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: '/current-level',
-        element: <CurrentLevelPage />,
+        path: '/detail/:id',
+        element: <DetailPage />,
       },
     ],
   },

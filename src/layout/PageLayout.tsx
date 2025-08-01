@@ -4,9 +4,9 @@ import { Header } from './Header';
 
 function PageLayout() {
   return (
-    <Box minH="screen" bg="gray.100">
+    <Box minH="screen" bg="background.03_gray">
       <Header />
-      <Container maxWidth="lg" py={6}>
+      <Container maxW="md" px={0}>
         <Outlet />
       </Container>
     </Box>
