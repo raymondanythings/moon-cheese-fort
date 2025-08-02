@@ -29,7 +29,7 @@ export function Header() {
 
           <HStack gap={4}>
             <CurrencyToggle value={currency} onValueChange={setCurrency} />
-            <Box pos="relative" color="neutral.01_black" onClick={() => navigate('/shopping')}>
+            <Box pos="relative" color="neutral.01_black" onClick={() => navigate('/shopping-cart')}>
               <ShoppingCartIcon size={22} />
               <Circle size={3} bg="secondary.02_orange" pos="absolute" top={-1} right={-1}>
                 <Text fontSize={8} fontWeight={'semibold'}>
