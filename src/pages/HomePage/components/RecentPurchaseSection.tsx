@@ -1,10 +1,7 @@
 import { Spacing, Text } from '@/ui-lib';
-import { useNavigate } from 'react-router';
 import { Flex, styled } from 'styled-system/jsx';
 
 function RecentPurchaseSection() {
-  const navigate = useNavigate();
-
   return (
     <styled.section css={{ px: 5, pt: 4, pb: 8 }}>
       <Text variant="H1_Bold">최근 구매한 상품</Text>
@@ -12,8 +9,6 @@ function RecentPurchaseSection() {
       <Spacing size={4} />
 
       <Flex
-        role="button"
-        onClick={() => navigate('/product/1')}
         css={{
           bg: 'background.01_white',
           gap: 4,

@@ -17,22 +17,22 @@ function RecommendationSection() {
 
       <HStack gap={1.5} overflowX="auto">
         <ProductItem
-          name="크래이머 블루 치즈"
-          price={38267}
+          name="월레스의 오리지널 웬슬리데일"
+          price={12.99}
           rating={4.0}
           image="/moon-cheese-images/cheese-1.jpg"
           onClick={() => handleClickProduct(1)}
         />
         <ProductItem
-          name="크래이머 블루 치즈"
-          price={38267}
+          name="그로밋의 잉글리쉬 브렉퍼스트 티"
+          price={6.75}
           rating={4.0}
-          image="/moon-cheese-images/cheese-2.jpg"
+          image="/moon-cheese-images/tea-2.jpg"
           onClick={() => handleClickProduct(2)}
         />
         <ProductItem
           name="크래이머 블루 치즈"
-          price={38267}
+          price={15.75}
           rating={4.0}
           image="/moon-cheese-images/cheese-3.jpg"
           onClick={() => handleClickProduct(3)}
@@ -56,7 +56,7 @@ const ProductItem = ({
   onClick?: () => void;
 }) => {
   return (
-    <Box role="button" onClick={onClick} css={{ flexShrink: 0, w: '140px' }}>
+    <Box role="button" onClick={onClick} css={{ flexShrink: 0, w: '140px', cursor: 'pointer' }}>
       <styled.img
         src={image}
         alt={name}
@@ -71,13 +71,15 @@ const ProductItem = ({
       <Spacing size={4} />
 
       <Stack gap={1}>
-        <Text variant="C2_Medium">{name}</Text>
+        <Text variant="C2_Medium" lineClamp={1}>
+          {name}
+        </Text>
         <RatingGroup value={rating} label={`${rating.toFixed(1)}`} readOnly />
       </Stack>
 
       <Spacing size={2} />
 
-      <Text variant="C1_Bold">₩{price.toLocaleString()}</Text>
+      <Text variant="C1_Bold">${price.toFixed(2).toLocaleString()}</Text>
     </Box>
   );
 };

@@ -31,25 +31,24 @@ function ProductListSection() {
           description="월레스가 아침마다 찾는 바로 그 치즈!"
           price={12.99}
           rating={4}
-          freeTag="milk"
           onClick={() => handleClickProduct(1)}
         />
         <ProductItem
-          image="/moon-cheese-images/cheese-2.jpg"
-          name="월레스의 오리지널 웬슬리데일"
-          description="월레스가 아침마다 찾는 바로 그 치즈!"
-          price={12.99}
+          image="/moon-cheese-images/cracker-1.jpg"
+          name="로봇 크런치 비스킷"
+          description="로봇 캐릭터 모양의 귀리 비스킷"
+          price={5}
           rating={3}
-          freeTag="caffeine"
+          freeTag="gluten"
           onClick={() => handleClickProduct(2)}
         />
         <ProductItem
-          image="/moon-cheese-images/cheese-3.jpg"
-          name="월레스의 오리지널 웬슬리데일"
-          description="월레스가 아침마다 찾는 바로 그 치즈!"
-          price={12.99}
+          image="/moon-cheese-images/tea-1.jpg"
+          name="문라이트 카모마일 티"
+          description="달빛 같은 부드러운 허브차"
+          price={7}
           rating={5}
-          freeTag="gluten"
+          freeTag="caffeine"
           onClick={() => handleClickProduct(3)}
         />
       </Grid>
@@ -77,27 +76,29 @@ const ProductItem = ({
   const [count, setCount] = useState(0);
 
   return (
-    <Box onClick={onClick}>
-      <styled.img src={image} alt={name} css={{ w: 'full', aspectRatio: 1, objectFit: 'cover', rounded: '2xl' }} />
+    <Box>
+      <Box role="button" onClick={onClick} cursor="pointer">
+        <styled.img src={image} alt={name} css={{ w: 'full', aspectRatio: 1, objectFit: 'cover', rounded: '2xl' }} />
 
-      <Spacing size={4} />
+        <Spacing size={4} />
 
-      <Flex flexDir="column" gap={0.5}>
-        <Text variant="B2_Bold">{name}</Text>
-        <Text variant="C1_Medium" color="neutral.02_gray">
-          {description}
-        </Text>
-      </Flex>
+        <Flex flexDir="column" gap={0.5}>
+          <Text variant="B2_Bold">{name}</Text>
+          <Text variant="C1_Medium" color="neutral.02_gray">
+            {description}
+          </Text>
+        </Flex>
 
-      <Spacing size={2} />
+        <Spacing size={2} />
 
-      <HStack justify="space-between" alignItems={'start'}>
-        <Stack gap={2}>
-          <RatingGroup label={`${rating.toFixed(1)}`} readOnly value={rating} />
-          <Text variant="B1_Bold">${price.toFixed(2).toLocaleString()}</Text>
-        </Stack>
-        {freeTag && <IconFree type={freeTag} />}
-      </HStack>
+        <HStack justify="space-between" alignItems={'start'}>
+          <Stack gap={2}>
+            <RatingGroup label={`${rating.toFixed(1)}`} readOnly value={rating} />
+            <Text variant="B1_Bold">${price.toFixed(2).toLocaleString()}</Text>
+          </Stack>
+          {freeTag && <IconFree type={freeTag} />}
+        </HStack>
+      </Box>
 
       <Spacing size={3} />
 
