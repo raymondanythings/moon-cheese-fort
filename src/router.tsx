@@ -1,10 +1,27 @@
+import PageLayout from '@/layout/PageLayout';
 import { createBrowserRouter } from 'react-router';
-import Home from '@/pages/Home';
+import HomePage from './pages/HomePage';
+import ProductDetailPage from './pages/ProductDetailPage';
+import ShoppingCartPage from './pages/ShoppingCartPage';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Home />,
+    element: <PageLayout />,
+    children: [
+      {
+        path: '/',
+        element: <HomePage />,
+      },
+      {
+        path: '/product/:id',
+        element: <ProductDetailPage />,
+      },
+      {
+        path: '/shopping-cart',
+        element: <ShoppingCartPage />,
+      },
+    ],
   },
 ]);
 
