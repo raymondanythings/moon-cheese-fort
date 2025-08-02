@@ -1,6 +1,6 @@
-import { Button, Counter, RatingGroup, Text } from '@/ui-lib';
+import { Button, Counter, RatingGroup, Spacing, Text } from '@/ui-lib';
 import Tag, { type TagType } from '@/ui-lib/components/tag';
-import { Divider, HStack, Stack } from 'styled-system/jsx';
+import { Box, Divider, Flex, Stack, styled } from 'styled-system/jsx';
 
 type ProductInfoSectionProps = {
   name: string;
@@ -12,30 +12,39 @@ type ProductInfoSectionProps = {
 
 function ProductInfoSection({ name, category, rating, price, quantity }: ProductInfoSectionProps) {
   return (
-    <Stack p={5} gap={5}>
-      <Stack gap={4}>
+    <styled.section css={{ bg: 'background.01_white', p: 5 }}>
+      {/* 상품 정보 */}
+      <Box>
         <Stack gap={2}>
           <Tag type={category} />
           <Text variant="B1_Bold">{name}</Text>
           <RatingGroup value={rating} readOnly label={`${rating.toFixed(1)}`} />
         </Stack>
+        <Spacing size={4} />
         <Text variant="H1_Bold">${price.toFixed(2)}</Text>
-      </Stack>
+      </Box>
 
-      <HStack justify="space-between" alignItems="center">
-        <HStack gap={2}>
+      <Spacing size={5} />
+
+      {/* 재고 및 수량 조절 */}
+      <Flex justify="space-between" alignItems="center">
+        <Flex alignItems="center" gap={2}>
           <Text variant="C1_Medium">재고</Text>
           <Divider orientation="vertical" color="border.01_gray" h={4} />
           <Text variant="C1_Medium" color="secondary.02_orange">
             {quantity}EA
           </Text>
-        </HStack>
+        </Flex>
         <Counter />
-      </HStack>
+      </Flex>
+
+      <Spacing size={5} />
+
+      {/* 장바구니 버튼 */}
       <Button fullWidth color="primary" size="lg">
         장바구니
       </Button>
-    </Stack>
+    </styled.section>
   );
 }
 

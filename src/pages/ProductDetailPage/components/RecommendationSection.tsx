@@ -1,4 +1,4 @@
-import { RatingGroup, Text } from '@/ui-lib';
+import { RatingGroup, Spacing, Text } from '@/ui-lib';
 import { useNavigate } from 'react-router';
 import { Box, HStack, Stack, styled } from 'styled-system/jsx';
 
@@ -10,8 +10,11 @@ function RecommendationSection() {
   };
 
   return (
-    <Stack gap={4} px={5} pt={5} pb={6}>
+    <styled.section css={{ bg: 'background.01_white', px: 5, pt: 5, pb: 6 }}>
       <Text variant="H2_Bold">추천 제품</Text>
+
+      <Spacing size={4} />
+
       <HStack gap={1.5} overflowX="auto">
         <ProductItem
           name="크래이머 블루 치즈"
@@ -35,7 +38,7 @@ function RecommendationSection() {
           onClick={() => handleClickProduct(3)}
         />
       </HStack>
-    </Stack>
+    </styled.section>
   );
 }
 
@@ -53,27 +56,28 @@ const ProductItem = ({
   onClick?: () => void;
 }) => {
   return (
-    <Box role="button" flexShrink={0} w="140px" onClick={onClick}>
-      <Stack gap={4}>
-        <styled.img
-          src={image}
-          alt={name}
-          css={{
-            w: '120px',
-            aspectRatio: 1,
-            objectFit: 'cover',
-            rounded: '2xl',
-          }}
-        />
+    <Box role="button" onClick={onClick} css={{ flexShrink: 0, w: '140px' }}>
+      <styled.img
+        src={image}
+        alt={name}
+        css={{
+          w: 'full',
+          aspectRatio: 1,
+          objectFit: 'cover',
+          rounded: '2xl',
+        }}
+      />
 
-        <Stack gap={2}>
-          <Stack gap={1}>
-            <Text variant="C2_Medium">{name}</Text>
-            <RatingGroup value={rating} readOnly label={`${rating.toFixed(1)}`} />
-          </Stack>
-          <Text variant="C1_Bold">₩{price.toLocaleString()}</Text>
-        </Stack>
+      <Spacing size={4} />
+
+      <Stack gap={1}>
+        <Text variant="C2_Medium">{name}</Text>
+        <RatingGroup value={rating} label={`${rating.toFixed(1)}`} readOnly />
       </Stack>
+
+      <Spacing size={2} />
+
+      <Text variant="C1_Bold">₩{price.toLocaleString()}</Text>
     </Box>
   );
 };
