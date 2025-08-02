@@ -1,9 +1,14 @@
 import { HttpResponse, http } from 'msw';
-import { gradePointList, gradeShippingList, products, user } from './data';
+import { gradePointList, gradeShippingList, products, user, type Product } from './data';
 
 const ERROR_CHANCE = 0.33;
 
 const EXCHANGE_RATE = Math.floor(Math.random() * (1400 - 1200 + 1)) + 1200;
+
+let cartItems: {
+  productId: number;
+  quantity: number;
+}[] = [];
 
 export const handlers = [
   http.get('/api/product/list', async () => {
@@ -78,6 +83,46 @@ export const handlers = [
     return HttpResponse.json(
       {
         products: [products[randomIndex]],
+      },
+      { status: 200 }
+    );
+  }),
+
+  http.get('/api/cart', async () => {
+    return HttpResponse.json(
+      {
+        cartItems,
+      },
+      { status: 200 }
+    );
+  }),
+
+  http.post('/api/cart/:productId', async ({ request, params }) => {
+    const product = products.find(product => product.id === Number(params.productId));
+    if (!product) {
+      return new HttpResponse(null, { status: 404 });
+    }
+
+    if (!cartItems.some(item => item.productId === product.id)) {
+      cartItems.push({
+        productId: product.id,
+        quantity: 1,
+      });
+    } else {
+      cartItems = cartItems.map(item => {
+        if (item.productId === product.id) {
+          return {
+            ...item,
+            quantity: item.quantity + 1,
+          };
+        }
+        return item;
+      });
+    }
+
+    return HttpResponse.json(
+      {
+        success: true,
       },
       { status: 200 }
     );
