@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router';
 import { Box, Grid, HStack, Stack, styled } from 'styled-system/jsx';
 
 function ProductListSection() {
-  const [currentTab, setCurrentTab] = useState('전체');
+  const [currentTab, setCurrentTab] = useState('all');
   const navigate = useNavigate();
 
   const handleClickProduct = (productId: number) => {
@@ -18,10 +18,10 @@ function ProductListSection() {
       </Box>
       <SubGNB.Root value={currentTab} onValueChange={details => setCurrentTab(details.value)}>
         <SubGNB.List>
-          <SubGNB.Trigger value="전체">전체</SubGNB.Trigger>
-          <SubGNB.Trigger value="치즈">치즈</SubGNB.Trigger>
-          <SubGNB.Trigger value="크래커">크래커</SubGNB.Trigger>
-          <SubGNB.Trigger value="티">티</SubGNB.Trigger>
+          <SubGNB.Trigger value="all">전체</SubGNB.Trigger>
+          <SubGNB.Trigger value="cheese">치즈</SubGNB.Trigger>
+          <SubGNB.Trigger value="cracker">크래커</SubGNB.Trigger>
+          <SubGNB.Trigger value="tea">티</SubGNB.Trigger>
         </SubGNB.List>
       </SubGNB.Root>
       <Grid gridTemplateColumns="repeat(2, 1fr)" rowGap={9} columnGap={4} p={5}>

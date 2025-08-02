@@ -24,7 +24,7 @@ export const tagRecipe = cva({
       },
 
       tea: {
-        color: 'status.green',
+        color: 'state.green',
         bgColor: 'background.05_green',
       },
     },

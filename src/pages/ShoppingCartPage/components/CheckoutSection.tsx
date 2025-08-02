@@ -25,7 +25,9 @@ function CheckoutSection() {
             <Text variant="H2_Bold">$30.59</Text>
           </HStack>
         </Stack>
-        <Button size="lg">결제 진행</Button>
+        <Button fullWidth size="lg">
+          결제 진행
+        </Button>
         <Text variant="C2_Regular" color="neutral.03_gray">
           {`우리는 신용카드, 은행 송금, 모바일 결제, 현금을 받아들입니다\n안전한 체크아웃\n귀하의 결제 정보는 암호화되어 안전합니다.`}
         </Text>

@@ -1,4 +1,5 @@
 // Components
+export { default as Badge } from './components/badge';
 export { default as Button } from './components/button';
 export { default as Counter } from './components/counter';
 export { default as CurrencyToggle } from './components/currency-toggle';
@@ -10,6 +11,7 @@ export { default as Tag } from './components/tag';
 export { default as Text } from './components/text';
 
 // Export component types
+export type { BadgeProps } from './components/badge';
 export type { ButtonProps } from './components/button';
 export type { CounterProps } from './components/counter';
 export type { CurrencyToggleProps, CurrencyType } from './components/currency-toggle';

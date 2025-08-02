@@ -1,10 +1,10 @@
+import Badge from '@/ui-lib/components/badge';
 import CurrencyToggle, { type CurrencyType } from '@/ui-lib/components/currency-toggle';
 import { ArrowLeftIcon, ShoppingCartIcon } from '@/ui-lib/components/icons';
 import Logo from '@/ui-lib/components/logo';
-import Text from '@/ui-lib/components/text';
 import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router';
-import { Box, Center, Circle, Container, HStack } from 'styled-system/jsx';
+import { Box, Container, Flex, styled } from 'styled-system/jsx';
 
 export function Header() {
   const [currency, setCurrency] = useState<CurrencyType>('USD');
@@ -14,32 +14,25 @@ export function Header() {
   const isRootRoute = location.pathname === '/';
 
   return (
-    <Box bg="background.01_white" h={14} position="sticky" top={0} zIndex={'docked'}>
+    <styled.header bg="background.01_white" h={14} position="sticky" top={0} zIndex={'docked'}>
       <Container maxW="md" h="full">
-        <HStack justify="space-between" h="full">
-          <HStack gap={2}>
-            {isRootRoute ? (
-              <Logo />
-            ) : (
-              <Center role="button" tabIndex={0} onClick={() => navigate(-1)} cursor="pointer" color="neutral.01_black">
-                <ArrowLeftIcon />
-              </Center>
-            )}
-          </HStack>
-
-          <HStack gap={4}>
-            <CurrencyToggle value={currency} onValueChange={setCurrency} />
-            <Box pos="relative" color="neutral.01_black" onClick={() => navigate('/shopping-cart')}>
-              <ShoppingCartIcon size={22} />
-              <Circle size={3} bg="secondary.02_orange" pos="absolute" top={-1} right={-1}>
-                <Text fontSize={8} fontWeight={'semibold'}>
-                  9
-                </Text>
-              </Circle>
+        <Flex alignItems="center" justifyContent="space-between" h="full">
+          {isRootRoute ? (
+            <Logo />
+          ) : (
+            <Box role="button" tabIndex={0} onClick={() => navigate(-1)} cursor="pointer" color="neutral.01_black">
+              <ArrowLeftIcon />
             </Box>
-          </HStack>
-        </HStack>
+          )}
+
+          <Flex alignItems="center" gap={4}>
+            <CurrencyToggle value={currency} onValueChange={setCurrency} />
+            <Badge content={9} size="sm" cursor="pointer" onClick={() => navigate('/shopping-cart')}>
+              <ShoppingCartIcon size={22} />
+            </Badge>
+          </Flex>
+        </Flex>
       </Container>
-    </Box>
+    </styled.header>
   );
 }

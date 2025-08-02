@@ -10,14 +10,12 @@ export const counterRecipe = cva({
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-
     border: '1px solid',
     borderColor: 'border.01_gray',
     rounded: 'full',
     p: 1,
     gap: 1,
     userSelect: 'none',
-
     h: '28px',
     w: '89px',
   },

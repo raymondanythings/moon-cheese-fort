@@ -8,6 +8,7 @@ function RecentPurchaseSection() {
   const handleClickProduct = (productId: number) => {
     navigate(`/product/${productId}`);
   };
+
   return (
     <Stack px={5} pt={4} pb={8} gap={4}>
       <Text variant="H1_Bold">최근 구매한 상품</Text>
