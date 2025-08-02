@@ -20,6 +20,7 @@ export const buttonRecipe = cva({
     overflow: 'hidden',
     whiteSpace: 'nowrap',
     userSelect: 'none',
+    w: 'fit-content',
 
     _active: {
       transform: 'scale(0.99)',
