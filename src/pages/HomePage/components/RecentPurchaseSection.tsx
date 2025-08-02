@@ -1,4 +1,4 @@
-import Text from '@/ui-lib/components/text';
+import { Text } from '@/ui-lib';
 import { useNavigate } from 'react-router';
 import { Box, Flex, Stack, styled } from 'styled-system/jsx';
 

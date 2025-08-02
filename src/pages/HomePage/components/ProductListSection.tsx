@@ -1,7 +1,4 @@
-import { Counter } from '@/ui-lib/components/counter';
-import RatingGroup from '@/ui-lib/components/rating-group';
-import SubGNB from '@/ui-lib/components/sub-gnb';
-import Text from '@/ui-lib/components/text';
+import { Counter, RatingGroup, SubGNB, Text } from '@/ui-lib';
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { Box, Grid, HStack, Stack, styled } from 'styled-system/jsx';

@@ -1,5 +1,4 @@
-import ProgressBar from '@/ui-lib/components/progressbar';
-import Text from '@/ui-lib/components/text';
+import { ProgressBar, Text } from '@/ui-lib';
 import { Box, Flex, Stack } from 'styled-system/jsx';
 
 function CurrentLevelSection() {

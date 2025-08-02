@@ -1,4 +1,4 @@
-import Text from '@/ui-lib/components/text';
+import { Text } from '@/ui-lib';
 import { Stack } from 'styled-system/jsx';
 
 type ProductDetailSectionProps = {

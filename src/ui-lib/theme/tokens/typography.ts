@@ -1,4 +1,4 @@
-import { defineTextStyles, defineTokens } from '@pandacss/dev';
+import { defineTokens } from '@pandacss/dev';
 
 export const fontSizes = defineTokens.fontSizes({
   '2xs': { value: '0.5rem' },

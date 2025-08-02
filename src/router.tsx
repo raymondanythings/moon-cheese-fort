@@ -2,7 +2,7 @@ import PageLayout from '@/layout/PageLayout';
 import { createBrowserRouter } from 'react-router';
 import HomePage from './pages/HomePage';
 import ProductDetailPage from './pages/ProductDetailPage';
-import ShoppingPage from './pages/ShoppingPage';
+import ShoppingCartPage from './pages/ShoppingCartPage';
 
 const router = createBrowserRouter([
   {
@@ -18,8 +18,8 @@ const router = createBrowserRouter([
         element: <ProductDetailPage />,
       },
       {
-        path: '/shopping',
-        element: <ShoppingPage />,
+        path: '/shopping-cart',
+        element: <ShoppingCartPage />,
       },
     ],
   },

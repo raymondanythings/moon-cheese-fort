@@ -1,5 +1,4 @@
-import RatingGroup from '@/ui-lib/components/rating-group';
-import Text from '@/ui-lib/components/text';
+import { RatingGroup, Text } from '@/ui-lib';
 import { useNavigate } from 'react-router';
 import { Box, HStack, Stack, styled } from 'styled-system/jsx';
 

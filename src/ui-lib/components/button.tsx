@@ -62,7 +62,7 @@ export const buttonRecipe = cva({
         color: 'neutral.01_black',
 
         _active: {
-          bgColor: 'background.01_gray',
+          bgColor: 'background.03_gray',
         },
         _disabled: {
           color: 'neutral.03_gray',

@@ -1,8 +1,5 @@
-import Button from '@/ui-lib/components/button';
-import { Counter } from '@/ui-lib/components/counter';
-import RatingGroup from '@/ui-lib/components/rating-group';
+import { Button, Counter, RatingGroup, Text } from '@/ui-lib';
 import Tag, { type TagType } from '@/ui-lib/components/tag';
-import Text from '@/ui-lib/components/text';
 import { Divider, HStack, Stack } from 'styled-system/jsx';
 
 type ProductInfoSectionProps = {

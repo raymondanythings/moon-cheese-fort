@@ -83,7 +83,7 @@ export interface CounterProps extends React.HTMLAttributes<HTMLDivElement> {
   onValueChange?: (value: number) => void;
 }
 
-export const Counter = forwardRef<HTMLDivElement, CounterProps>((props, ref) => {
+const Counter = forwardRef<HTMLDivElement, CounterProps>((props, ref) => {
   const {
     value: controlledValue,
     defaultValue = 0,
@@ -147,3 +147,5 @@ export const Counter = forwardRef<HTMLDivElement, CounterProps>((props, ref) => 
 });
 
 Counter.displayName = 'Counter';
+
+export default Counter;

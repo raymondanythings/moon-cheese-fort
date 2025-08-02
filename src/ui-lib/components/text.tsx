@@ -8,6 +8,8 @@ export const textRecipe = cva({
   base: {
     color: 'neutral.01_black',
     display: 'block',
+    whiteSpace: 'pre-wrap',
+    wordBreak: 'keep-all',
   },
   variants: {
     variant: {
