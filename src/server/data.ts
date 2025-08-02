@@ -122,3 +122,99 @@ export const products: Product[] = [
     likesCount: 0,
   },
 ];
+
+// 등급별 포인트 설정
+const GRADE_POINTS = {
+  EXPLORER: 0,
+  PILOT: 3.5,
+  COMMANDER: 7,
+} as const;
+
+// 등급별 배송 설정
+const GRADE_SHIPPING = {
+  EXPLORER: {
+    fee: 2,
+    freeThreshold: 30,
+  },
+  PILOT: {
+    fee: 1,
+    freeThreshold: 30,
+  },
+  COMMANDER: {
+    fee: 0,
+    freeThreshold: 0, // 무조건 무료
+  },
+} as const;
+
+// 등급 타입 정의
+export type GradeType = 'EXPLORER' | 'PILOT' | 'COMMANDER';
+
+// 포인트 관련 등급 타입
+type GradePoint = {
+  type: GradeType;
+  minPoint: number;
+};
+
+// 배송 관련 등급 타입
+type GradeShipping = {
+  type: GradeType;
+  shippingFee: number;
+  freeShippingThreshold: number;
+};
+
+// 등급별 포인트 데이터
+const gradePointData: Record<GradeType, GradePoint> = {
+  EXPLORER: {
+    type: 'EXPLORER',
+    minPoint: GRADE_POINTS.EXPLORER,
+  },
+  PILOT: {
+    type: 'PILOT',
+    minPoint: GRADE_POINTS.PILOT,
+  },
+  COMMANDER: {
+    type: 'COMMANDER',
+    minPoint: GRADE_POINTS.COMMANDER,
+  },
+};
+
+export const gradePointList = [gradePointData.EXPLORER, gradePointData.PILOT, gradePointData.COMMANDER];
+
+// 등급별 배송 데이터
+const gradeShippingData: Record<GradeType, GradeShipping> = {
+  EXPLORER: {
+    type: 'EXPLORER',
+    shippingFee: GRADE_SHIPPING.EXPLORER.fee,
+    freeShippingThreshold: GRADE_SHIPPING.EXPLORER.freeThreshold,
+  },
+  PILOT: {
+    type: 'PILOT',
+    shippingFee: GRADE_SHIPPING.PILOT.fee,
+    freeShippingThreshold: GRADE_SHIPPING.PILOT.freeThreshold,
+  },
+  COMMANDER: {
+    type: 'COMMANDER',
+    shippingFee: GRADE_SHIPPING.COMMANDER.fee,
+    freeShippingThreshold: GRADE_SHIPPING.COMMANDER.freeThreshold,
+  },
+};
+
+export const gradeShippingList = [gradeShippingData.EXPLORER, gradeShippingData.PILOT, gradeShippingData.COMMANDER];
+
+type User = {
+  id: number;
+  name: string;
+  email: string;
+  point: number;
+  grade: GradeType;
+  wishList: Product[];
+};
+
+export const user: User = {
+  id: 10111,
+  name: '김철수',
+  email: 'kim@gmail.com',
+  point: 3,
+  grade: 'EXPLORER',
+  wishList: [],
+};
