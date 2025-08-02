@@ -63,9 +63,24 @@ export const handlers = [
       { status: 200 }
     );
   }),
+
+  http.get('/api/recent/product', async () => {
+    const randomIndex = generateRandomIndex(products.length);
+
+    return HttpResponse.json(
+      {
+        products: [products[randomIndex]],
+      },
+      { status: 200 }
+    );
+  }),
 ];
 
 function isErrorRandomly(threshold: number) {
   const randomNumber = Math.random();
   return randomNumber < threshold;
+}
+
+function generateRandomIndex(length: number) {
+  return Math.floor(Math.random() * length);
 }
