@@ -6,6 +6,7 @@ export { default as CurrencyToggle } from './components/currency-toggle';
 export { default as Logo } from './components/logo';
 export { default as ProgressBar } from './components/progressbar';
 export { default as RatingGroup } from './components/rating-group';
+export { default as Spacing } from './components/spacing';
 export { default as SubGNB } from './components/sub-gnb';
 export { default as Tag } from './components/tag';
 export { default as Text } from './components/text';

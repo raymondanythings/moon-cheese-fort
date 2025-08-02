@@ -1,14 +1,16 @@
-import { ProgressBar, Text } from '@/ui-lib';
-import { Box, Flex, Stack } from 'styled-system/jsx';
+import { ProgressBar, Spacing, Text } from '@/ui-lib';
+import { Box, Flex, styled } from 'styled-system/jsx';
 
 function CurrentLevelSection() {
   return (
-    <Stack px={5} py={4} gap={4}>
+    <styled.section css={{ px: 5, py: 4 }}>
       <Text variant="H1_Bold">현재 등급</Text>
-      <Box bg="background.01_white" px={5} py={4} rounded={'2xl'}>
-        <Stack gap={2}>
-          <Text variant="H2_Bold">Explorer</Text>
 
+      <Spacing size={4} />
+
+      <Box bg="background.01_white" css={{ px: 5, py: 4, rounded: '2xl' }}>
+        <Flex flexDir="column" gap={2}>
+          <Text variant="H2_Bold">Explorer</Text>
           <ProgressBar value={0.6} size="xs" />
           <Flex justifyContent="space-between">
             <Box textAlign="left">
@@ -24,9 +26,9 @@ function CurrentLevelSection() {
               </Text>
             </Box>
           </Flex>
-        </Stack>
+        </Flex>
       </Box>
-    </Stack>
+    </styled.section>
   );
 }
 

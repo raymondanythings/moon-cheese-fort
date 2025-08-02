@@ -1,7 +1,7 @@
-import { Counter, RatingGroup, SubGNB, Text } from '@/ui-lib';
+import { Counter, RatingGroup, Spacing, SubGNB, Text } from '@/ui-lib';
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
-import { Box, Grid, HStack, Stack, styled } from 'styled-system/jsx';
+import { Box, Flex, Grid, HStack, Stack, styled } from 'styled-system/jsx';
 
 function ProductListSection() {
   const [currentTab, setCurrentTab] = useState('all');
@@ -12,8 +12,8 @@ function ProductListSection() {
   };
 
   return (
-    <Box bg="background.01_white">
-      <Box px={5} pt={5} pb={4}>
+    <styled.section bg="background.01_white">
+      <Box css={{ px: 5, pt: 5, pb: 4 }}>
         <Text variant="H1_Bold">판매중인 상품</Text>
       </Box>
       <SubGNB.Root value={currentTab} onValueChange={details => setCurrentTab(details.value)}>
@@ -30,7 +30,7 @@ function ProductListSection() {
           name="월레스의 오리지널 웬슬리데일"
           description="월레스가 아침마다 찾는 바로 그 치즈!"
           price={12.99}
-          rating={4.5}
+          rating={4}
           freeTag="milk"
           onClick={() => handleClickProduct(1)}
         />
@@ -53,7 +53,7 @@ function ProductListSection() {
           onClick={() => handleClickProduct(3)}
         />
       </Grid>
-    </Box>
+    </styled.section>
   );
 }
 
@@ -77,27 +77,32 @@ const ProductItem = ({
   const [count, setCount] = useState(0);
 
   return (
-    <Stack gap={4} tabIndex={0} onClick={onClick}>
+    <Box onClick={onClick}>
       <styled.img src={image} alt={name} css={{ w: 'full', aspectRatio: 1, objectFit: 'cover', rounded: '2xl' }} />
-      <Stack gap={3}>
+
+      <Spacing size={4} />
+
+      <Flex flexDir="column" gap={0.5}>
+        <Text variant="B2_Bold">{name}</Text>
+        <Text variant="C1_Medium" color="neutral.02_gray">
+          {description}
+        </Text>
+      </Flex>
+
+      <Spacing size={2} />
+
+      <HStack justify="space-between" alignItems={'start'}>
         <Stack gap={2}>
-          <Stack gap={0.5}>
-            <Text variant="B2_Bold">{name}</Text>
-            <Text variant="C1_Medium" color="neutral.02_gray">
-              {description}
-            </Text>
-          </Stack>
-          <HStack justify="space-between" alignItems={'start'}>
-            <Stack gap={2}>
-              <RatingGroup label={`${rating.toFixed(1)}`} readOnly value={rating} />
-              <Text variant="B1_Bold">${price.toFixed(2).toLocaleString()}</Text>
-            </Stack>
-            {freeTag && <IconFree type={freeTag} />}
-          </HStack>
+          <RatingGroup label={`${rating.toFixed(1)}`} readOnly value={rating} />
+          <Text variant="B1_Bold">${price.toFixed(2).toLocaleString()}</Text>
         </Stack>
-        <Counter value={count} onValueChange={setCount} />
-      </Stack>
-    </Stack>
+        {freeTag && <IconFree type={freeTag} />}
+      </HStack>
+
+      <Spacing size={3} />
+
+      <Counter value={count} onValueChange={setCount} max={3} />
+    </Box>
   );
 };
 
