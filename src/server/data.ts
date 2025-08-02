@@ -5,7 +5,7 @@ type Product = {
   stock: number;
   price: number;
   description: string;
-  imageUrl: string;
+  images: string[];
   rating: number;
   likesCount: number;
 };
@@ -18,7 +18,12 @@ export const products: Product[] = [
     stock: 3,
     price: 12.99,
     description: '전통 영국식 크리미한 웬슬리데일 치즈',
-    imageUrl: '/moon-cheese-images/cheese-1.jpg',
+    images: [
+      '/moon-cheese-images/cheese-1-1.jpg',
+      '/moon-cheese-images/cheese-1-2.jpg',
+      '/moon-cheese-images/cheese-1-3.jpg',
+      '/moon-cheese-images/cheese-1-4.jpg',
+    ],
     rating: 4.8,
     likesCount: 0,
   },
@@ -29,7 +34,12 @@ export const products: Product[] = [
     stock: 3,
     price: 14.87,
     description: '달 착륙 모험에서 영감받은 체다 치즈',
-    imageUrl: '/moon-cheese-images/cheese-2.jpg',
+    images: [
+      '/moon-cheese-images/cheese-2-1.jpg',
+      '/moon-cheese-images/cheese-2-2.jpg',
+      '/moon-cheese-images/cheese-2-3.jpg',
+      '/moon-cheese-images/cheese-2-4.jpg',
+    ],
     rating: 4.9,
     likesCount: 0,
   },
@@ -40,7 +50,12 @@ export const products: Product[] = [
     stock: 1,
     price: 10,
     description: '전자바지를 모티브로 한 부드러운 브리',
-    imageUrl: '/moon-cheese-images/cheese-3.jpg',
+    images: [
+      '/moon-cheese-images/cheese-3-1.jpg',
+      '/moon-cheese-images/cheese-3-2.jpg',
+      '/moon-cheese-images/cheese-3-3.jpg',
+      '/moon-cheese-images/cheese-3-4.jpg',
+    ],
     rating: 4.6,
     likesCount: 0,
   },
@@ -51,7 +66,12 @@ export const products: Product[] = [
     stock: 3,
     price: 13.55,
     description: '숀 더 쉽 크림치즈',
-    imageUrl: '/moon-cheese-images/cheese-4.jpg',
+    images: [
+      '/moon-cheese-images/cheese-4-1.jpg',
+      '/moon-cheese-images/cheese-4-2.jpg',
+      '/moon-cheese-images/cheese-4-3.jpg',
+      '/moon-cheese-images/cheese-4-4.jpg',
+    ],
     rating: 4.7,
     likesCount: 0,
   },
@@ -62,7 +82,12 @@ export const products: Product[] = [
     stock: 2,
     price: 10.85,
     description: '달 표면을 닮은 구멍 크래커',
-    imageUrl: '/moon-cheese-images/cracker-1.jpg',
+    images: [
+      '/moon-cheese-images/cracker-1-1.jpg',
+      '/moon-cheese-images/cracker-1-2.jpg',
+      '/moon-cheese-images/cracker-1-3.jpg',
+      '/moon-cheese-images/cracker-1-4.jpg',
+    ],
     rating: 4.5,
     likesCount: 0,
   },
@@ -73,7 +98,12 @@ export const products: Product[] = [
     stock: 2,
     price: 5,
     description: '로봇 캐릭터 모양의 귀리 비스킷',
-    imageUrl: '/moon-cheese-images/cracker-2.jpg',
+    images: [
+      '/moon-cheese-images/cracker-2-1.jpg',
+      '/moon-cheese-images/cracker-2-2.jpg',
+      '/moon-cheese-images/cracker-2-3.jpg',
+      '/moon-cheese-images/cracker-2-4.jpg',
+    ],
     rating: 4.4,
     likesCount: 0,
   },
@@ -84,7 +114,12 @@ export const products: Product[] = [
     stock: 1,
     price: 6.5,
     description: '매콤한 맛, 펭귄 페더스 테마',
-    imageUrl: '/moon-cheese-images/cracker-3.jpg',
+    images: [
+      '/moon-cheese-images/cracker-3-1.jpg',
+      '/moon-cheese-images/cracker-3-2.jpg',
+      '/moon-cheese-images/cracker-3-3.jpg',
+      '/moon-cheese-images/cracker-3-4.jpg',
+    ],
     rating: 4.3,
     likesCount: 0,
   },
@@ -95,7 +130,7 @@ export const products: Product[] = [
     stock: 2,
     price: 6.75,
     description: '영국식 클래식 블랙티',
-    imageUrl: '/moon-cheese-images/tea-1.jpg',
+    images: ['/moon-cheese-images/tea-1-1.jpg', '/moon-cheese-images/tea-1-2.jpg', '/moon-cheese-images/tea-1-3.jpg'],
     rating: 4.8,
     likesCount: 0,
   },
@@ -106,7 +141,7 @@ export const products: Product[] = [
     stock: 1,
     price: 7,
     description: '달빛 같은 부드러운 허브차',
-    imageUrl: '/moon-cheese-images/tea-2.jpg',
+    images: ['/moon-cheese-images/tea-2-1.jpg', '/moon-cheese-images/tea-2-2.jpg', '/moon-cheese-images/tea-2-3.jpg'],
     rating: 4.6,
     likesCount: 0,
   },
@@ -117,7 +152,12 @@ export const products: Product[] = [
     stock: 1,
     price: 6.8,
     description: '우주선 컨셉의 루이보스 티',
-    imageUrl: '/moon-cheese-images/tea-3.jpg',
+    images: [
+      '/moon-cheese-images/tea-3-1.jpg',
+      '/moon-cheese-images/tea-3-2.jpg',
+      '/moon-cheese-images/tea-3-3.jpg',
+      '/moon-cheese-images/tea-3-4.jpg',
+    ],
     rating: 4.7,
     likesCount: 0,
   },

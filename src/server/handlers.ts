@@ -7,14 +7,6 @@ const EXCHANGE_RATE = Math.floor(Math.random() * (1400 - 1200 + 1)) + 1200;
 
 export const handlers = [
   http.get('/api/product/list', async () => {
-    const isError = isErrorRandomly(ERROR_CHANCE);
-    if (isError) {
-      return new HttpResponse(null, {
-        status: 500,
-        statusText: 'Internal Server Error',
-      });
-    }
-
     return HttpResponse.json(
       {
         products: products,
@@ -33,6 +25,14 @@ export const handlers = [
   }),
 
   http.get('/api/me', async () => {
+    const isError = isErrorRandomly(ERROR_CHANCE);
+    if (isError) {
+      return new HttpResponse(null, {
+        status: 500,
+        statusText: 'Internal Server Error',
+      });
+    }
+
     return HttpResponse.json(
       {
         id: user.id,
@@ -47,6 +47,14 @@ export const handlers = [
   }),
 
   http.get('/api/grade/point', async () => {
+    const isError = isErrorRandomly(ERROR_CHANCE);
+    if (isError) {
+      return new HttpResponse(null, {
+        status: 500,
+        statusText: 'Internal Server Error',
+      });
+    }
+
     return HttpResponse.json(
       {
         gradePointList,
