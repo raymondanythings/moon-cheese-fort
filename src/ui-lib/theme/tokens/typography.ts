@@ -49,6 +49,8 @@ export const lineHeights = defineTokens.lineHeights({
 export const fonts = defineTokens.fonts({
   sans: {
     value: [
+      'Pretendard Variable',
+      'Pretendard',
       'ui-sans-serif',
       'system-ui',
       '-apple-system',

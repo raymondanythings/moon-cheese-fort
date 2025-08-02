@@ -10,6 +10,7 @@ export const textRecipe = cva({
     display: 'block',
     whiteSpace: 'pre-wrap',
     wordBreak: 'keep-all',
+    fontFamily: 'sans',
   },
   variants: {
     variant: {
