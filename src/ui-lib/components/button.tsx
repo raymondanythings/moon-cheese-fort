@@ -11,17 +11,19 @@ export const buttonRecipe = cva({
     alignItems: 'center',
     justifyContent: 'center',
     gap: '2',
-    borderRadius: 'lg',
-    fontWeight: 'bold',
     cursor: 'pointer',
     border: 'none',
     outline: 'none',
     textDecoration: 'none',
     transition: 'all 0.2s ease-in-out',
-    position: 'relative',
+    pos: 'relative',
     overflow: 'hidden',
     whiteSpace: 'nowrap',
     userSelect: 'none',
+
+    _active: {
+      transform: 'scale(0.99)',
+    },
 
     _disabled: {
       cursor: 'not-allowed',
@@ -42,184 +44,63 @@ export const buttonRecipe = cva({
   },
 
   variants: {
-    variant: {
-      // Primary Button - 주요 액션
+    color: {
       primary: {
-        backgroundColor: '01_primary',
+        bgColor: 'primary.01_primary',
         color: 'neutral.01_black',
-
-        _hover: {
-          backgroundColor: '02_secondary',
-          transform: 'translateY(-1px)',
-          boxShadow: '0 4px 12px rgba(255, 200, 33, 0.3)',
-        },
-
         _active: {
-          backgroundColor: '03_secondary',
-          transform: 'translateY(0)',
-          boxShadow: '0 2px 4px rgba(255, 200, 33, 0.2)',
+          bgColor: 'secondary.02_orange',
         },
-      },
-
-      // Secondary Button - 보조 액션
-      secondary: {
-        backgroundColor: '02_secondary',
-        color: 'neutral.01_black',
-
-        _hover: {
-          backgroundColor: '03_secondary',
-          transform: 'translateY(-1px)',
-          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
-        },
-
-        _active: {
-          backgroundColor: '04_red',
-          transform: 'translateY(0)',
-          boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+        _disabled: {
+          color: 'neutral.03_gray',
+          bgColor: 'neutral.04_gray',
         },
       },
 
       neutral: {
-        backgroundColor: 'background.03_gray',
+        bgColor: 'background.02_light-gray',
         color: 'neutral.01_black',
 
-        _hover: {
-          backgroundColor: 'background.02_light-gray',
-          transform: 'translateY(-1px)',
-          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
-        },
-
         _active: {
-          backgroundColor: 'background.03_gray',
-          transform: 'translateY(0)',
-          boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+          bgColor: 'background.01_gray',
         },
-      },
-
-      // Outline Button - 테두리만 있는 버튼
-      outline: {
-        backgroundColor: 'transparent',
-        color: '01_primary',
-        border: '2px solid',
-        borderColor: '01_primary',
-
-        _hover: {
-          backgroundColor: '01_primary',
-          color: 'neutral.01_black',
-          transform: 'translateY(-1px)',
-          boxShadow: '0 4px 12px rgba(255, 200, 33, 0.3)',
-        },
-
-        _active: {
-          backgroundColor: '02_secondary',
-          borderColor: '02_secondary',
-          transform: 'translateY(0)',
-        },
-      },
-
-      // Ghost Button - 투명한 배경
-      ghost: {
-        backgroundColor: 'transparent',
-        color: 'neutral.02_gray',
-
-        _hover: {
-          backgroundColor: 'background.02_light-gray',
-          color: 'neutral.01_black',
-        },
-
-        _active: {
-          backgroundColor: 'background.03_gray',
-        },
-      },
-
-      // Danger Button - 위험한 액션
-      danger: {
-        backgroundColor: '04_red',
-        color: 'neutral.05_white',
-
-        _hover: {
-          backgroundColor: '#e60000',
-          transform: 'translateY(-1px)',
-          boxShadow: '0 4px 12px rgba(250, 20, 20, 0.3)',
-        },
-
-        _active: {
-          backgroundColor: '#cc0000',
-          transform: 'translateY(0)',
-        },
-      },
-
-      // Success Button - 성공/확인 액션
-      success: {
-        backgroundColor: '05_green',
-        color: 'neutral.05_white',
-
-        _hover: {
-          backgroundColor: '#129e3e',
-          transform: 'translateY(-1px)',
-          boxShadow: '0 4px 12px rgba(22, 163, 73, 0.3)',
-        },
-
-        _active: {
-          backgroundColor: '#0e7a30',
-          transform: 'translateY(0)',
-        },
-      },
-      black: {
-        backgroundColor: 'neutral.01_black',
-        color: 'neutral.05_white',
-
-        _hover: {
-          backgroundColor: 'neutral.02_gray',
-        },
-
-        _active: {
-          backgroundColor: 'neutral.03_gray',
+        _disabled: {
+          color: 'neutral.03_gray',
+          bgColor: 'neutral.04_gray',
         },
       },
     },
 
     size: {
-      xs: {
-        height: '28px',
-        px: '3',
-        fontSize: '12px',
-        lineHeight: '1.4',
-        gap: '1',
-      },
       sm: {
-        height: '36px',
-        px: '3',
-        fontSize: '13px',
-        lineHeight: '1.4',
-        gap: '1.5',
+        h: 6,
+        px: 2,
+        py: 1,
+        textStyle: 'C1_Medium',
+        rounded: 'lg',
+        gap: 1.5,
       },
       md: {
-        height: '40px',
-        px: '4',
-        fontSize: '14px',
-        lineHeight: '1.4',
-        gap: '2',
+        h: 9,
+        px: 5,
+        py: '9px',
+        textStyle: 'C1_Bold',
+        rounded: 'xl',
+        gap: 2,
       },
       lg: {
-        height: '48px',
-        px: '6',
-        fontSize: '16px',
-        lineHeight: '1.5',
-        gap: '2',
-      },
-      xl: {
-        height: '56px',
-        px: '8',
-        fontSize: '18px',
-        lineHeight: '1.5',
-        gap: '2.5',
+        h: 12,
+        px: 7,
+        py: 3,
+        textStyle: 'B1_Bold',
+        gap: 2,
+        rounded: '2xl',
       },
     },
 
     fullWidth: {
       true: {
-        width: '100%',
+        w: 'full',
       },
     },
 
@@ -232,7 +113,7 @@ export const buttonRecipe = cva({
   },
 
   defaultVariants: {
-    variant: 'primary',
+    color: 'primary',
     size: 'md',
     fullWidth: false,
     loading: false,
@@ -305,7 +186,7 @@ export type ButtonProps = BaseButtonProps & HTMLStyledProps<'button'>;
 const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   const {
     children,
-    variant = 'primary',
+    color = 'primary',
     size = 'md',
     fullWidth = false,
     loading = false,
@@ -331,7 +212,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   return (
     <ButtonComponent
       ref={ref}
-      variant={variant}
+      color={color}
       size={size}
       fullWidth={fullWidth}
       loading={loading}

@@ -1,15 +1,16 @@
-import { defineTextStyles } from '@pandacss/dev'
+import { defineTextStyles } from '@pandacss/dev';
 
 export const textStyles = defineTextStyles({
-  xs: { value: { fontSize: 'xs', lineHeight: '1.125rem' } },
-  sm: { value: { fontSize: 'sm', lineHeight: '1.25rem' } },
-  md: { value: { fontSize: 'md', lineHeight: '1.5rem' } },
-  lg: { value: { fontSize: 'lg', lineHeight: '1.75rem' } },
-  xl: { value: { fontSize: 'xl', lineHeight: '1.875rem' } },
-  '2xl': { value: { fontSize: '2xl', lineHeight: '2rem' } },
-  '3xl': { value: { fontSize: '3xl', lineHeight: '2.375rem' } },
-  '4xl': { value: { fontSize: '4xl', lineHeight: '2.75rem', letterSpacing: '-0.02em' } },
-  '5xl': { value: { fontSize: '5xl', lineHeight: '3.75rem', letterSpacing: '-0.02em' } },
-  '6xl': { value: { fontSize: '6xl', lineHeight: '4.5rem', letterSpacing: '-0.02em' } },
-  '7xl': { value: { fontSize: '7xl', lineHeight: '5.75rem', letterSpacing: '-0.02em' } },
-})
+  H1_Bold: { value: { fontSize: 20, fontWeight: 'bold', lineHeight: 1.5, letterSpacing: -0.025 } },
+  H2_Bold: { value: { fontSize: 18, fontWeight: 'bold', lineHeight: 1.5, letterSpacing: -0.025 } },
+  C1_Bold: { value: { fontSize: 13, fontWeight: 'bold', lineHeight: 1.4, letterSpacing: -0.025 } },
+  C1_Medium: { value: { fontSize: 13, fontWeight: 'medium', lineHeight: 1.4, letterSpacing: -0.025 } },
+  C2_Regular: { value: { fontSize: 12, fontWeight: 'regular', lineHeight: 1.4, letterSpacing: -0.025 } },
+  C2_Medium: { value: { fontSize: 12, fontWeight: 'medium', lineHeight: 1.4, letterSpacing: -0.025 } },
+  B1_Bold: { value: { fontSize: 16, fontWeight: 'bold', lineHeight: 1.5, letterSpacing: -0.025 } },
+  B1_Medium: { value: { fontSize: 16, fontWeight: 'medium', lineHeight: 1.5, letterSpacing: -0.025 } },
+  B1_Regular: { value: { fontSize: 16, fontWeight: 'regular', lineHeight: 1.5, letterSpacing: -0.025 } },
+  B2_Bold: { value: { fontSize: 14, fontWeight: 'bold', lineHeight: 1.4, letterSpacing: -0.025 } },
+  B2_Medium: { value: { fontSize: 14, fontWeight: 'medium', lineHeight: 1.4, letterSpacing: -0.025 } },
+  B2_Regular: { value: { fontSize: 14, fontWeight: 'regular', lineHeight: 1.4, letterSpacing: -0.025 } },
+});

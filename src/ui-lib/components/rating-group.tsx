@@ -1,4 +1,4 @@
-import { RatingGroup, ratingGroupAnatomy } from '@ark-ui/react';
+import { RatingGroup as ArkRatingGroup, ratingGroupAnatomy } from '@ark-ui/react';
 import { forwardRef } from 'react';
 import { sva, type RecipeVariantProps } from 'styled-system/css';
 import { styled, type HTMLStyledProps } from 'styled-system/jsx';
@@ -12,7 +12,8 @@ export const ratingGroupRecipe = sva({
     root: {
       display: 'flex',
       flexDir: 'row',
-      gap: '1.5',
+      alignItems: 'center',
+      gap: 1,
     },
     label: {
       color: 'neutral.01_black',
@@ -31,18 +32,18 @@ export const ratingGroupRecipe = sva({
 
       color: 'neutral.04_gray',
       _highlighted: {
-        color: '04_red',
+        color: 'state.red',
       },
 
       _hover: {
-        fill: '04_red',
-        color: '04_red',
+        fill: 'state.red',
+        color: 'state.red',
       },
     },
   },
   variants: {
     size: {
-      sm: {
+      md: {
         control: {
           gap: '0',
         },
@@ -58,7 +59,7 @@ export const ratingGroupRecipe = sva({
           fontSize: '12px',
         },
       },
-      md: {
+      lg: {
         control: {
           gap: '2px',
         },
@@ -74,22 +75,6 @@ export const ratingGroupRecipe = sva({
           fontSize: '14px',
         },
       },
-      lg: {
-        control: {
-          gap: '2px',
-        },
-        item: {
-          width: '24px',
-          height: '24px',
-          '& svg': {
-            width: '24px',
-            height: '24px',
-          },
-        },
-        label: {
-          fontSize: '16px',
-        },
-      },
     },
   },
   defaultVariants: {
@@ -98,13 +83,12 @@ export const ratingGroupRecipe = sva({
 });
 
 // Star Icon Component
-const StarIcon = ({ filled = false }: { filled?: boolean }) => (
+const StarIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
-    fill={filled ? 'currentColor' : 'none'}
+    fill={'currentColor'}
     stroke="currentColor"
-    strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
   >
@@ -114,51 +98,23 @@ const StarIcon = ({ filled = false }: { filled?: boolean }) => (
 
 export type RatingGroupProps = RatingGroupVariantProps &
   HTMLStyledProps<'div'> & {
-    /**
-     * 현재 선택된 평점 값
-     */
     value?: number;
-    /**
-     * 기본 평점 값
-     */
     defaultValue?: number;
-    /**
-     * 평점 변경 시 호출되는 콜백
-     */
     onValueChange?: (details: { value: number }) => void;
-    /**
-     * 별의 총 개수
-     */
     count?: number;
-    /**
-     * 반쪽 별 허용 여부
-     */
-    allowHalf?: boolean;
-    /**
-     * 읽기 전용 모드
-     */
+
     readOnly?: boolean;
-    /**
-     * 비활성화 상태
-     */
     disabled?: boolean;
-    /**
-     * 라벨 텍스트
-     */
     label?: string;
-    /**
-     * 사용자 정의 별 아이콘
-     */
     icon?: React.ComponentType<{ filled?: boolean }>;
   };
 
-const RatingGroupComponent = forwardRef<HTMLDivElement, RatingGroupProps>((props, ref) => {
+const RatingGroup = forwardRef<HTMLDivElement, RatingGroupProps>((props, ref) => {
   const {
     value,
     defaultValue = 0,
     onValueChange,
     count = 5,
-    allowHalf = true,
     readOnly = false,
     disabled = false,
     label,
@@ -172,31 +128,30 @@ const RatingGroupComponent = forwardRef<HTMLDivElement, RatingGroupProps>((props
 
   return (
     <Container ref={ref} className={classes.root} {...rest}>
-      <RatingGroup.Root
+      <ArkRatingGroup.Root
         value={value}
         defaultValue={defaultValue}
         onValueChange={onValueChange}
         count={count}
-        allowHalf={allowHalf}
         readOnly={readOnly}
         disabled={disabled}
       >
-        <RatingGroup.Control className={classes.control}>
-          <RatingGroup.Context>
+        <ArkRatingGroup.Control className={classes.control}>
+          <ArkRatingGroup.Context>
             {({ items }) =>
               items.map(item => (
-                <RatingGroup.Item key={item} index={item} className={classes.item}>
-                  <RatingGroup.ItemContext>
+                <ArkRatingGroup.Item key={item} index={item} className={classes.item}>
+                  <ArkRatingGroup.ItemContext>
                     {({ highlighted }) => <CustomIcon filled={highlighted} />}
-                  </RatingGroup.ItemContext>
-                </RatingGroup.Item>
+                  </ArkRatingGroup.ItemContext>
+                </ArkRatingGroup.Item>
               ))
             }
-          </RatingGroup.Context>
-        </RatingGroup.Control>
+          </ArkRatingGroup.Context>
+        </ArkRatingGroup.Control>
 
-        <RatingGroup.HiddenInput />
-      </RatingGroup.Root>
+        <ArkRatingGroup.HiddenInput />
+      </ArkRatingGroup.Root>
       {label && (
         <Text variant="C1_Medium" color="neutral.02_gray" className={classes.label}>
           {label}
@@ -206,6 +161,6 @@ const RatingGroupComponent = forwardRef<HTMLDivElement, RatingGroupProps>((props
   );
 });
 
-RatingGroupComponent.displayName = 'RatingGroup';
+RatingGroup.displayName = 'RatingGroup';
 
-export default RatingGroupComponent;
+export default RatingGroup;

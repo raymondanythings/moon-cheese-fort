@@ -1,4 +1,4 @@
-import { defineTokens } from '@pandacss/dev'
+import { defineTextStyles, defineTokens } from '@pandacss/dev';
 
 export const fontSizes = defineTokens.fontSizes({
   '2xs': { value: '0.5rem' },
@@ -15,7 +15,7 @@ export const fontSizes = defineTokens.fontSizes({
   '7xl': { value: '4.5rem' },
   '8xl': { value: '6rem' },
   '9xl': { value: '8rem' },
-})
+});
 
 export const fontWeights = defineTokens.fontWeights({
   thin: { value: '100' },
@@ -27,7 +27,7 @@ export const fontWeights = defineTokens.fontWeights({
   bold: { value: '700' },
   extrabold: { value: '800' },
   black: { value: '900' },
-})
+});
 
 export const letterSpacings = defineTokens.letterSpacings({
   tighter: { value: '-0.05em' },
@@ -36,7 +36,7 @@ export const letterSpacings = defineTokens.letterSpacings({
   wide: { value: '0.025em' },
   wider: { value: '0.05em' },
   widest: { value: '0.1em' },
-})
+});
 
 export const lineHeights = defineTokens.lineHeights({
   none: { value: '1' },
@@ -44,7 +44,7 @@ export const lineHeights = defineTokens.lineHeights({
   normal: { value: '1.5' },
   relaxed: { value: '1.75' },
   loose: { value: '2' },
-})
+});
 
 export const fonts = defineTokens.fonts({
   sans: {
@@ -80,4 +80,4 @@ export const fonts = defineTokens.fonts({
       'monospace',
     ],
   },
-})
+});

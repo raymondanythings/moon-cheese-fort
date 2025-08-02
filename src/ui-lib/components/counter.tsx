@@ -1,6 +1,7 @@
 import { forwardRef, useState } from 'react';
 import { cva, type RecipeVariantProps } from 'styled-system/css';
 import { styled } from 'styled-system/jsx';
+import { MinusIcon, PlusIcon } from './icons';
 
 export type CounterVariantProps = RecipeVariantProps<typeof counterRecipe>;
 
@@ -17,8 +18,8 @@ export const counterRecipe = cva({
     gap: 1,
     userSelect: 'none',
 
-    height: '28px',
-    width: '89px',
+    h: '28px',
+    w: '89px',
   },
 });
 
@@ -27,19 +28,19 @@ export const counterButtonRecipe = cva({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'transparent',
+    bg: 'transparent',
     border: 'none',
-    borderRadius: '50%',
+    rounded: '50%',
     cursor: 'pointer',
     transition: 'all 0.2s ease-in-out',
     fontWeight: 'bold',
-    color: 'neutral.09_black',
-    width: '24px',
-    height: '24px',
+    color: 'neutral.01_black',
+    w: '24px',
+    h: '24px',
     fontSize: '14px',
 
     _hover: {
-      backgroundColor: 'neutral.04_lightestgray',
+      bgColor: 'neutral.04_lightestgray',
       transform: 'scale(1.1)',
     },
 
@@ -49,7 +50,7 @@ export const counterButtonRecipe = cva({
 
     _disabled: {
       cursor: 'not-allowed',
-      opacity: 0.4,
+      color: 'neutral.04_gray',
       pointerEvents: 'none',
     },
   },
@@ -64,7 +65,7 @@ export const counterDisplayRecipe = cva({
     fontSize: '14px',
     fontWeight: 'semibold',
     color: 'neutral.09_black',
-    minWidth: '20px',
+    minW: '20px',
   },
 });
 
@@ -133,13 +134,13 @@ export const Counter = forwardRef<HTMLDivElement, CounterProps>((props, ref) => 
   return (
     <StyledCounterContainer ref={ref} {...restProps}>
       <StyledCounterButton disabled={!canDecrement} onClick={handleDecrement} aria-label="Decrease value">
-        −
+        <MinusIcon />
       </StyledCounterButton>
 
       <StyledCounterDisplay>{value}</StyledCounterDisplay>
 
       <StyledCounterButton disabled={!canIncrement} onClick={handleIncrement} aria-label="Increase value">
-        +
+        <PlusIcon />
       </StyledCounterButton>
     </StyledCounterContainer>
   );

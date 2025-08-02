@@ -20,22 +20,30 @@ export const colors = defineTokens.colors({
       value: '#ffffff',
     },
   },
-
-  '01_primary': {
-    value: '#FFC821',
+  primary: {
+    '01_primary': {
+      value: '#FFC821',
+    },
   },
 
-  '02_secondary': {
-    value: '#FD9206',
+  secondary: {
+    '01_brown': {
+      value: '#BF6300',
+    },
+    '02_orange': {
+      value: '#FD9206',
+    },
+    '03_light-orange': {
+      value: '#FFA938',
+    },
   },
-  '03_secondary': {
-    value: '#FFA938',
-  },
-  '04_red': {
-    value: '#FA1414',
-  },
-  '05_green': {
-    value: '#16A349',
+  state: {
+    red: {
+      value: '#FA1414',
+    },
+    green: {
+      value: '#16A349',
+    },
   },
   background: {
     '01_white': {
@@ -49,6 +57,12 @@ export const colors = defineTokens.colors({
     },
     '04_yellow': {
       value: '#FEFAE7',
+    },
+    '05_green': {
+      value: '#E8F6ED',
+    },
+    '06_brown': {
+      value: '#F9EFE5',
     },
   },
   border: {

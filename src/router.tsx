@@ -1,7 +1,8 @@
 import PageLayout from '@/layout/PageLayout';
 import { createBrowserRouter } from 'react-router';
-import DetailPage from './pages/ShoppingPage';
 import HomePage from './pages/HomePage';
+import ProductDetailPage from './pages/ProductDetailPage';
+import ShoppingPage from './pages/ShoppingPage';
 
 const router = createBrowserRouter([
   {
@@ -13,8 +14,12 @@ const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: '/detail/:id',
-        element: <DetailPage />,
+        path: '/product/:id',
+        element: <ProductDetailPage />,
+      },
+      {
+        path: '/shopping',
+        element: <ShoppingPage />,
       },
     ],
   },
