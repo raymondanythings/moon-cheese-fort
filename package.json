@@ -1,8 +1,38 @@
 {
 	"name": "moon-cheese-react",
 	"private": true,
-	"version": "0.0.0",
+	"version": "0.1.1",
 	"type": "module",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/hacks-team/moon-cheese.git"
+	},
+	"author": "hacks-team",
+	"license": "MIT",
+	"homepage": "https://github.com/hacks-team/moon-cheese",
+	"bugs": {
+		"url": "https://github.com/hacks-team/moon-cheese/issues"
+	},
+	"keywords": [
+		"moon-cheese",
+		"react",
+		"vite",
+		"frontend"
+	],
+	"contributors": [
+		{
+			"name": "minr2kb",
+			"url": "https://github.com/minr2kb"
+		},
+		{
+			"name": "JUCHEOLJIN",
+			"url": "https://github.com/JUCHEOLJIN"
+		},
+		{
+			"name": "raymondanything",
+			"url": "https://github.com/raymondanythings"
+		}
+	],
 	"scripts": {
 		"postinstall": "panda codegen",
 		"dev": "vite",
