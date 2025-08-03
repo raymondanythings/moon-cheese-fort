@@ -1,7 +1,24 @@
+import { SECOND } from '@/constants/time';
 import { Button, Spacing, Text } from '@/ui-lib';
+import { toast } from '@/ui-lib/components/toast';
+import { delay } from '@/utils/async';
+import { useState } from 'react';
+import { useNavigate } from 'react-router';
 import { Box, Divider, Flex, HStack, Stack, styled } from 'styled-system/jsx';
 
 function CheckoutSection() {
+  const navigate = useNavigate();
+  const [isPurchasing, setIsPurchasing] = useState(false);
+
+  const onClickPurchase = async () => {
+    setIsPurchasing(true);
+    await delay(SECOND * 1);
+    setIsPurchasing(false);
+    toast.success('결제가 완료되었습니다.');
+    await delay(SECOND * 2);
+    navigate('/');
+  };
+
   return (
     <styled.section css={{ p: 5, bgColor: 'background.01_white' }}>
       <Text variant="H2_Bold">결제금액</Text>
@@ -32,8 +49,8 @@ function CheckoutSection() {
           </HStack>
         </Stack>
 
-        <Button fullWidth size="lg">
-          결제 진행
+        <Button fullWidth size="lg" loading={isPurchasing} onClick={onClickPurchase}>
+          {isPurchasing ? '결제 중...' : '결제 진행'}
         </Button>
 
         <Text variant="C2_Regular" color="neutral.03_gray">
