@@ -1,7 +1,24 @@
-import { Button, DeliveryIcon, Spacing, Text } from '@/ui-lib';
+import { SECOND } from '@/constants/time';
+import { Button, Spacing, Text } from '@/ui-lib';
+import { toast } from '@/ui-lib/components/toast';
+import { delay } from '@/utils/async';
+import { useState } from 'react';
+import { useNavigate } from 'react-router';
 import { Box, Divider, Flex, HStack, Stack, styled } from 'styled-system/jsx';
 
 function CheckoutSection() {
+  const navigate = useNavigate();
+  const [isPurchasing, setIsPurchasing] = useState(false);
+
+  const onClickPurchase = async () => {
+    setIsPurchasing(true);
+    await delay(SECOND * 1);
+    setIsPurchasing(false);
+    toast.success('결제가 완료되었습니다.');
+    await delay(SECOND * 2);
+    navigate('/');
+  };
+
   return (
     <styled.section css={{ p: 5, bgColor: 'background.01_white' }}>
       <Text variant="H2_Bold">결제금액</Text>
@@ -32,29 +49,14 @@ function CheckoutSection() {
           </HStack>
         </Stack>
 
-        <Button fullWidth size="lg">
-          결제 진행
+        <Button fullWidth size="lg" loading={isPurchasing} onClick={onClickPurchase}>
+          {isPurchasing ? '결제 중...' : '결제 진행'}
         </Button>
 
         <Text variant="C2_Regular" color="neutral.03_gray">
           {`우리는 신용카드, 은행 송금, 모바일 결제, 현금을 받아들입니다\n안전한 체크아웃\n귀하의 결제 정보는 암호화되어 안전합니다.`}
         </Text>
       </Stack>
-
-      <Spacing size={4} />
-
-      <Flex gap={3} css={{ p: 5, py: 4, bgColor: 'background.02_light-gray', rounded: '2xl' }}>
-        <DeliveryIcon size={28} />
-
-        <Flex flexDir="column" gap={1}>
-          <Text variant="B2_Regular" fontWeight={'semibold'}>
-            3-5일 후 도착 예정
-          </Text>
-          <Text variant="C2_Medium" color={'neutral.02_gray'}>
-            결제 시 익스프레스 배송 가능
-          </Text>
-        </Flex>
-      </Flex>
     </styled.section>
   );
 }

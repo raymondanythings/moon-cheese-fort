@@ -11,7 +11,9 @@ function CurrentLevelSection() {
       <Box bg="background.01_white" css={{ px: 5, py: 4, rounded: '2xl' }}>
         <Flex flexDir="column" gap={2}>
           <Text variant="H2_Bold">Explorer</Text>
+
           <ProgressBar value={0.6} size="xs" />
+
           <Flex justifyContent="space-between">
             <Box textAlign="left">
               <Text variant="C1_Bold">현재 포인트</Text>

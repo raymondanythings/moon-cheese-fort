@@ -1,7 +1,8 @@
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
 import App from '@/App.tsx';
 import { enableMocking } from '@/server/brower.ts';
+import { EnhancedToastProvider } from '@/ui-lib/components/toast';
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
 import './index.css';
 
 enableMocking({
@@ -12,7 +13,9 @@ enableMocking({
 }).then(() => {
   createRoot(document.getElementById('root')!).render(
     <StrictMode>
-      <App />
+      <EnhancedToastProvider>
+        <App />
+      </EnhancedToastProvider>
     </StrictMode>
   );
 });
