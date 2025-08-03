@@ -67,8 +67,18 @@ interface CounterRootProps extends React.HTMLAttributes<HTMLDivElement> {
     children: React.ReactNode;
 }
 
-const CounterRoot = ({ children, ...props }: CounterRootProps) => {
-    return <StyledCounterContainer {...props}>{children}</StyledCounterContainer>;
+const CounterRoot = ({ children, onClick, ...props }: CounterRootProps) => {
+    return (
+        <StyledCounterContainer
+            {...props}
+            onClick={e => {
+                e.stopPropagation();
+                onClick?.(e);
+            }}
+        >
+            {children}
+        </StyledCounterContainer>
+    );
 };
 
 interface CounterButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
