@@ -13,7 +13,7 @@ function BannerSection() {
 			<styled.img
 				src={IMAGE_SRC}
 				alt="banner"
-				css={{ w: "full", h: 300, objectFit: "cover" }}
+				css={{ w: "full", aspectRatio: 375 / 300, objectFit: "cover" }}
 			/>
 			<styled.img
 				src={LOGO_TEXT_SRC}
